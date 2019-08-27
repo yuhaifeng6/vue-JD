@@ -54,6 +54,183 @@ module.exports = {
                     message: "用户名或密码错误！"
                   })
                 }
+              });
+
+              // 首页轮播图接口
+              app.get("/api/getBanner", (req, res)=>{
+                res.json({
+                  data: [
+                    {
+                      url: "www.baidu.com",
+                      image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1566105590110&di=005c59f19ea134079a5a5799a9d11e6c&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201706%2F30%2F20170630002828_mPLvk.jpeg"
+                    },
+                    {
+                      url: "www.baidu.com",
+                      image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1566700346&di=e1442892672bfeacef4e390ae4535a42&imgtype=jpg&er=1&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201601%2F16%2F20160116161826_JVTFa.png"
+                    },
+                    {
+                      url: "www.baidu.com",
+                      image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1566105646254&di=6d7b8590977b3b4cfb60494ac03ab6ce&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201602%2F16%2F20160216005603_crnRH.jpeg"
+                    }
+                  ]
+                })
+              });
+              // 滚动分类接口
+              app.get("/api/srollinglist", (req, res)=>{
+                res.json({
+                  data: [
+                      [{
+                        url: "www.baidu.com",
+                        image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1566105590110&di=005c59f19ea134079a5a5799a9d11e6c&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201706%2F30%2F20170630002828_mPLvk.jpeg",
+                        label: "分类一"
+                      },
+                      {
+                        url: "www.baidu.com",
+                        image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1566105590110&di=005c59f19ea134079a5a5799a9d11e6c&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201706%2F30%2F20170630002828_mPLvk.jpeg",
+                        label: "分类一"
+                      },
+                      {
+                        url: "www.baidu.com",
+                        image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1566105590110&di=005c59f19ea134079a5a5799a9d11e6c&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201706%2F30%2F20170630002828_mPLvk.jpeg",
+                        label: "分类一"
+                      },
+                      {
+                        url: "www.baidu.com",
+                        image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1566105590110&di=005c59f19ea134079a5a5799a9d11e6c&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201706%2F30%2F20170630002828_mPLvk.jpeg",
+                        label: "分类一"
+                      },
+                      {
+                        url: "www.baidu.com",
+                        image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1566105590110&di=005c59f19ea134079a5a5799a9d11e6c&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201706%2F30%2F20170630002828_mPLvk.jpeg",
+                        label: "分类一"
+                      },
+                      {
+                        url: "www.baidu.com",
+                        image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1566105590110&di=005c59f19ea134079a5a5799a9d11e6c&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201706%2F30%2F20170630002828_mPLvk.jpeg",
+                        label: "分类一"
+                      },
+                      {
+                        url: "www.baidu.com",
+                        image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1566105590110&di=005c59f19ea134079a5a5799a9d11e6c&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201706%2F30%2F20170630002828_mPLvk.jpeg",
+                        label: "分类一"
+                      },
+                      {
+                        url: "www.baidu.com",
+                        image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1566105590110&di=005c59f19ea134079a5a5799a9d11e6c&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201706%2F30%2F20170630002828_mPLvk.jpeg",
+                        label: "分类一"
+                      },
+                      {
+                        url: "www.baidu.com",
+                        image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1566105590110&di=005c59f19ea134079a5a5799a9d11e6c&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201706%2F30%2F20170630002828_mPLvk.jpeg",
+                        label: "分类一"
+                      },
+                      {
+                        url: "www.baidu.com",
+                        image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1566105590110&di=005c59f19ea134079a5a5799a9d11e6c&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201706%2F30%2F20170630002828_mPLvk.jpeg",
+                        label: "分类一"
+                      }],
+                      [{
+                        url: "www.baidu.com",
+                        image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1566700346&di=e1442892672bfeacef4e390ae4535a42&imgtype=jpg&er=1&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201601%2F16%2F20160116161826_JVTFa.png",
+                        label: "分类二"
+                      },
+                      {
+                        url: "www.baidu.com",
+                        image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1566700346&di=e1442892672bfeacef4e390ae4535a42&imgtype=jpg&er=1&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201601%2F16%2F20160116161826_JVTFa.png",
+                        label: "分类二"
+                      },
+                      {
+                        url: "www.baidu.com",
+                        image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1566700346&di=e1442892672bfeacef4e390ae4535a42&imgtype=jpg&er=1&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201601%2F16%2F20160116161826_JVTFa.png",
+                        label: "分类二"
+                      },
+                      {
+                        url: "www.baidu.com",
+                        image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1566700346&di=e1442892672bfeacef4e390ae4535a42&imgtype=jpg&er=1&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201601%2F16%2F20160116161826_JVTFa.png",
+                        label: "分类二"
+                      },
+                      {
+                        url: "www.baidu.com",
+                        image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1566700346&di=e1442892672bfeacef4e390ae4535a42&imgtype=jpg&er=1&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201601%2F16%2F20160116161826_JVTFa.png",
+                        label: "分类二"
+                      },
+                      {
+                        url: "www.baidu.com",
+                        image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1566700346&di=e1442892672bfeacef4e390ae4535a42&imgtype=jpg&er=1&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201601%2F16%2F20160116161826_JVTFa.png",
+                        label: "分类二"
+                      },
+                      {
+                        url: "www.baidu.com",
+                        image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1566700346&di=e1442892672bfeacef4e390ae4535a42&imgtype=jpg&er=1&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201601%2F16%2F20160116161826_JVTFa.png",
+                        label: "分类二"
+                      },
+                      {
+                        url: "www.baidu.com",
+                        image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1566700346&di=e1442892672bfeacef4e390ae4535a42&imgtype=jpg&er=1&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201601%2F16%2F20160116161826_JVTFa.png",
+                        label: "分类二"
+                      },
+                      {
+                        url: "www.baidu.com",
+                        image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1566700346&di=e1442892672bfeacef4e390ae4535a42&imgtype=jpg&er=1&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201601%2F16%2F20160116161826_JVTFa.png",
+                        label: "分类二"
+                      },
+                      {
+                        url: "www.baidu.com",
+                        image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1566700346&di=e1442892672bfeacef4e390ae4535a42&imgtype=jpg&er=1&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201601%2F16%2F20160116161826_JVTFa.png",
+                        label: "分类二"
+                      }],
+                      [{
+                        url: "www.baidu.com",
+                        image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1566105646254&di=6d7b8590977b3b4cfb60494ac03ab6ce&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201602%2F16%2F20160216005603_crnRH.jpeg",
+                        label: "分类三"
+                      },
+                      {
+                        url: "www.baidu.com",
+                        image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1566105646254&di=6d7b8590977b3b4cfb60494ac03ab6ce&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201602%2F16%2F20160216005603_crnRH.jpeg",
+                        label: "分类三"
+                      },
+                      {
+                        url: "www.baidu.com",
+                        image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1566105646254&di=6d7b8590977b3b4cfb60494ac03ab6ce&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201602%2F16%2F20160216005603_crnRH.jpeg",
+                        label: "分类三"
+                      },
+                      {
+                        url: "www.baidu.com",
+                        image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1566105646254&di=6d7b8590977b3b4cfb60494ac03ab6ce&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201602%2F16%2F20160216005603_crnRH.jpeg",
+                        label: "分类三"
+                      },
+                      {
+                        url: "www.baidu.com",
+                        image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1566105646254&di=6d7b8590977b3b4cfb60494ac03ab6ce&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201602%2F16%2F20160216005603_crnRH.jpeg",
+                        label: "分类三"
+                      },
+                      {
+                        url: "www.baidu.com",
+                        image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1566105646254&di=6d7b8590977b3b4cfb60494ac03ab6ce&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201602%2F16%2F20160216005603_crnRH.jpeg",
+                        label: "分类三"
+                      },
+                      {
+                        url: "www.baidu.com",
+                        image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1566105646254&di=6d7b8590977b3b4cfb60494ac03ab6ce&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201602%2F16%2F20160216005603_crnRH.jpeg",
+                        label: "分类三"
+                      },
+                      {
+                        url: "www.baidu.com",
+                        image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1566105646254&di=6d7b8590977b3b4cfb60494ac03ab6ce&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201602%2F16%2F20160216005603_crnRH.jpeg",
+                        label: "分类三"
+                      },
+                      {
+                        url: "www.baidu.com",
+                        image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1566105646254&di=6d7b8590977b3b4cfb60494ac03ab6ce&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201602%2F16%2F20160216005603_crnRH.jpeg",
+                        label: "分类三"
+                      },
+                      {
+                        url: "www.baidu.com",
+                        image: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1566105646254&di=6d7b8590977b3b4cfb60494ac03ab6ce&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201602%2F16%2F20160216005603_crnRH.jpeg",
+                        label: "分类三"
+                      }],
+                  ]
+                })
               })
             }
         }

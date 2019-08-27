@@ -1,5 +1,5 @@
 <template>
-  <div class='register'>
+  <div class='login'>
     <cube-form
         :model="model"
         :schema="schema"
@@ -72,10 +72,13 @@ name: 'login',
           e.preventDefault();
           try {
             const result = await this.$http.get("/api/login", {params: this.model})
-            if (result.data.code == 0) {
-              alert(result.data.message)
+            console.log("登录返回结果", result)
+            if (result.code == 0) {
+              this.$store.commit("setToken", result.token)
+              window.localStorage.setItem("token", result.token)
+              this.$router.replace({path: '/index'})
             } else {
-              alert(result.data.message)
+              alert(result.message)
             }
           } catch (error) {
             console.log(error)
@@ -88,4 +91,7 @@ name: 'login',
 
 </script>
 <style lang='scss' scoped>
+.login{
+  padding-top: 30px;
+}
 </style>

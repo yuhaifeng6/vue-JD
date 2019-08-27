@@ -72,7 +72,7 @@ name: 'register',
           e.preventDefault();
           this.$http.get("/api/register", {params: this.model})
           .then((res)=>{
-              if (res.data.success) {
+              if (res.success) {
                   console.log("注册成功！")
               } else {
                   console.log("注册失败！")

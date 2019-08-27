@@ -13,7 +13,6 @@ export default new Router({
       path: "/",
       name: "root",
       redirect: "/login",
-      component: Login,
     },
     {
       path: '/register',
@@ -27,6 +26,44 @@ export default new Router({
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "about" */ './views/Login.vue')
-    }
+    },
+    {
+      path: '/index',
+      name: 'index',
+      component: () => import('./views/Index.vue')
+    },
+    {
+      path: '/botnav',
+      name: 'botnav',
+      component: () => import('./views/BotNav.vue'),
+      redirect: "/botnav/index",
+      children: [
+        {
+          path: "index",
+          name: "index",
+          component: () =>import("./views/Index.vue")
+        },
+        {
+          path: "list",
+          name: "list",
+          component: () =>import("./views/List.vue")
+        },
+        {
+          path: "search",
+          name: "search",
+          component: () =>import("./views/Search.vue")
+        },
+        {
+          path: "car",
+          name: "car",
+          component: () =>import("./views/Car.vue")
+        },
+        {
+          path: "mine",
+          name: "mine",
+          component: () =>import("./views/Mine.vue")
+        },
+      ]
+    },
   ]
 })
