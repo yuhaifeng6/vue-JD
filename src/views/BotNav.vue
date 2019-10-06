@@ -1,12 +1,14 @@
 <template>
   <div class='bot-nav'>
-      <router-view/>
+    <transition :name="transitionName">
+      <router-view class="Router"></router-view>
+    </transition>
     <cube-tab-bar
-        v-model="selectedLabelDefault"
-        :data="tabs"
-        @click="clickHandler"
-        @change="changeHandler"
-        class="botnav">
+      v-model="selectedLabelDefault"
+      :data="tabs"
+      @click="clickHandler"
+      @change="changeHandler"
+      class="botnav">
     </cube-tab-bar>
   </div>
 </template>
@@ -15,6 +17,7 @@
 export default {
   data () {
     return {
+      transitionName: "slide-right",
       selectedLabelDefault: '首页',
       tabs: [{
             label: '首页',
@@ -62,7 +65,31 @@ export default {
               break;
       }
     }
-  }
+  },
+  mounted() {
+    switch(this.$route.path){
+      case "/botnav/index": {
+        this.selectedLabelDefault = "首页"
+        break;
+      }
+      case "/botnav/list": {
+        this.selectedLabelDefault = "分类"
+        break;
+      }
+      case "/botnav/search": {
+        this.selectedLabelDefault = "搜索"
+        break;
+      }
+      case "/botnav/car": {
+        this.selectedLabelDefault = "购物车"
+        break;
+      }
+      case "/botnav/mine": {
+        this.selectedLabelDefault = "我的"
+        break;
+      }
+    }
+  },
 }
 
 </script>
@@ -74,14 +101,33 @@ export default {
         right: 0;
         z-index: 100;
         background: #ffffff;
-        .cube-tab{
-            div{
-                font-size: 16px;
-                padding-bottom: 3px;
-            }
-            i{
-                font-size: 20px;
-            }
-        }
+        border-top: 1px solid #ededed;
     }
+    .Router{
+      position: absolute;
+      width: 100%;
+      transition: all .8s ease;
+    }
+    .slide-left-enter, .slide-right-leave-active{
+      opacity: 0;
+      -webkit-transform: translate(100%, 0);
+      transform: translate(100%, 0);
+    }
+    .slide-left-leave-active, .slide-right-enter{
+      opacity: 0;
+      -webkit-transform: translate(-100%, 0);
+      transform: translate(-100%, 0); 
+    }
+</style>
+<style lang="scss">
+  .cube-tab{
+    div{
+      font-size: 16PX;
+      padding-bottom: 3px;
+      margin-top: 5px;
+    }
+    i{
+      font-size: 20px;
+    }
+  }
 </style>

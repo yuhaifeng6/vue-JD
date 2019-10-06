@@ -76,7 +76,12 @@ name: 'login',
             if (result.code == 0) {
               this.$store.commit("setToken", result.token)
               window.localStorage.setItem("token", result.token)
-              this.$router.replace({path: '/index'})
+              // 判断路由是否带参，带参就去到参数指向的地址
+              if (this.$route.query.redirect) {
+                this.$router.replace({path: this.$route.query.redirect})
+              } else {
+                this.$router.replace({path: '/botnav'})
+              }
             } else {
               alert(result.message)
             }

@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Register from './views/Register.vue'
-import Login from './views/Login.vue'
 
 Vue.use(Router)
 
@@ -56,11 +55,17 @@ export default new Router({
         {
           path: "car",
           name: "car",
+          meta: {
+            requireAuth: true, //当有这个字段的时候，我们判断这个页面需要登录权限
+          },
           component: () =>import("./views/Car.vue")
         },
         {
           path: "mine",
           name: "mine",
+          meta: { 
+            requireAuth: true, //当有这个字段的时候，我们判断这个页面需要登录权限
+          },
           component: () =>import("./views/Mine.vue")
         },
       ]
