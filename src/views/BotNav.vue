@@ -22,19 +22,19 @@ export default {
       tabs: [{
             label: '首页',
             icon: 'cubeic-home'
-          }, {
-              label: '分类',
-              icon: 'cubeic-tag'
-          }, {
-              label: '搜索',
-              icon: 'cubeic-search'
-          }, {
-              label: '购物车',
-              icon: 'cubeic-mall'
-          }, {
-              label: '我的',
-              icon: 'cubeic-person'
-          }]
+        }, {
+            label: '分类',
+            icon: 'cubeic-tag'
+        }, {
+            label: '搜索',
+            icon: 'cubeic-search'
+        }, {
+            label: '购物车',
+            icon: 'cubeic-mall'
+        }, {
+            label: '我的',
+            icon: 'cubeic-person'
+        }]
         }
     },
   methods: {
