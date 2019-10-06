@@ -34,7 +34,7 @@ export default {
           }, {
               label: '我的',
               icon: 'cubeic-person'
-          }]
+          }],
         }
     },
   methods: {
