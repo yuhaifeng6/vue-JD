@@ -10,10 +10,12 @@
       @change="changeHandler"
       class="botnav">
     </cube-tab-bar>
+    <span class="count_sum">{{count_sum}}</span>
   </div>
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
 export default {
   data () {
     return {
@@ -35,8 +37,13 @@ export default {
               label: '我的',
               icon: 'cubeic-person'
           }],
-        }
+      }
     },
+  computed: {
+    ...mapGetters({
+      count_sum: "count_sum"
+    })
+  },
   methods: {
     clickHandler (label) {
       // if you clicked home tab, then print 'Home'
@@ -117,6 +124,20 @@ export default {
       opacity: 0;
       -webkit-transform: translate(-100%, 0);
       transform: translate(-100%, 0); 
+    }
+    .count_sum{
+      position: fixed;
+      bottom: 43px;
+      right: 23%;
+      z-index: 1001;
+      width: 18px;
+      height: 18px;
+      line-height: 18px;
+      font-size: 14px;
+      text-align: center;
+      background: red;
+      color: #ffffff;
+      border-radius: 50%;
     }
 </style>
 <style lang="scss">

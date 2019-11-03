@@ -11,7 +11,7 @@
       <ul>
         <li v-for="item, index in tags" :key="index">
           <img :src="item.image" alt="">
-          <p>{{item.label}}</p>
+          <p>{{item.label}}<i class="cubeic-add" @click="addToCar($event, item)"></i></p>
         </li>
       </ul>
     </cube-scroll>
@@ -123,6 +123,11 @@ name: 'list',
     async getclassify(index){
       const result = await this.$http.get("/api/classify", {params: {type: index}})
       this.tags = result.data
+    },
+    // 添加商品到vuex
+    addToCar(e, val){
+      var that = this
+      that.$store.commit('addCar', val)
     }
   },
 }
@@ -156,4 +161,6 @@ name: 'list',
               img 
                   width 80px
                   height  80px
+              .cubeic-add
+                font-size 18px
 </style>
