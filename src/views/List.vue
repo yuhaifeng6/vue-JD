@@ -15,6 +15,19 @@
         </li>
       </ul>
     </cube-scroll>
+    <div class="ball_wrap">
+      <transition
+        @before-enter="beforeEnter"
+        @enter="enter"
+        @afterEnter="afterEnter"
+      >
+        <div class="ball" v-if="ball.show">
+          <div class="inner">
+            <i class="cubeic-add"></i>
+          </div>
+        </div>
+      </transition>
+    </div>
   </div>
 </template>
 
@@ -89,7 +102,11 @@ name: 'list',
           active: false
         },
       ],
-      tags: []
+      tags: [],
+      ball: {
+        show: false,
+        el: ""
+      }
     };
   },
 
@@ -128,6 +145,37 @@ name: 'list',
     addToCar(e, val){
       var that = this
       that.$store.commit('addCar', val)
+      // 显示小球
+      that.ball.show = true
+      // 获取点击的元素
+      that.ball.el = e.target
+    },
+    beforeEnter(el){
+      // 让小球移动到点击的位置
+      // 获取小球点击的位置
+      const dom = this.ball.el
+      const rect = dom.getBoundingClientRect() // 获取点击dom的位置
+      const x = rect.left - window.innerWidth * 0.7
+      const y = -(window.innerHeight - rect.top)
+      el.style.display = "block"
+      el.style.transform = `translate3d(0, ${y}px, 0)`
+      const inner = el.querySelector(".inner")
+      inner.style.transform = `translate3d(${x}px, 0, 0)`
+    },
+    enter(el, done){
+      // 触发重绘
+      document.body.offsetHeight
+      // 小球移动回到原点  即回到购物车位置
+      el.style.transform = `translate3d(0,0,0)`
+      const inner = el.querySelector(".inner")
+      inner.style.transform = `translate3d(0,0,0)`
+      // 过渡完成后执行的事件
+      el.addEventListener("transitionend", done)
+    },
+    afterEnter(el){
+      // 结束隐藏小球
+      this.ball.show = false
+      el.style.display = "none"
     }
   },
 }
@@ -136,6 +184,18 @@ name: 'list',
 <style lang='stylus' scoped>
  .panelsbox
   display flex
+  .ball_wrap
+    .ball
+      position fixed
+      left 70%
+      bottom 10px
+      z-index 1003
+      color red
+      transition all 1s cubic-bezier(0.49, 0.29, 0.75, 0.41)
+      .inner
+        width 16px
+        height 16px
+        transition all 1s linear
   .leftpanels
       width 30%
       li
